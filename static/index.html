@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Data Collector Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🤖 AI Data Collector</h1>
+                <div class="status-indicator">
+                    <span class="status-dot" id="statusDot"></span>
+                    <span id="statusText">Connecting...</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📄</div>
+                <div class="stat-content">
+                    <div class="stat-label">Pages Crawled</div>
+                    <div class="stat-value" id="pagesCrawled">0</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">💻</div>
+                <div class="stat-content">
+                    <div class="stat-label">Code Files</div>
+                    <div class="stat-value" id="codeFiles">0</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">💾</div>
+                <div class="stat-content">
+                    <div class="stat-label">Data Collected</div>
+                    <div class="stat-value" id="dataCollected">0 MB</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">⚡</div>
+                <div class="stat-content">
+                    <div class="stat-label">Speed</div>
+                    <div class="stat-value" id="speed">0 p/min</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-content">
+                    <div class="stat-label">Total Items</div>
+                    <div class="stat-value" id="totalItems">0</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🔄</div>
+                <div class="stat-content">
+                    <div class="stat-label">Queue Size</div>
+                    <div class="stat-value" id="queueSize">0</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">⏱️</div>
+                <div class="stat-content">
+                    <div class="stat-label">Runtime</div>
+                    <div class="stat-value" id="runtime">0h</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">❌</div>
+                <div class="stat-content">
+                    <div class="stat-label">Failed</div>
+                    <div class="stat-value" id="failed">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>📈 Collection Progress</h3>
+                <canvas id="progressChart"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h3>🎯 Data Distribution</h3>
+                <canvas id="distributionChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Recent Data Table -->
+        <div class="table-card">
+            <div class="table-header">
+                <h3>📋 Recent Collected Data</h3>
+                <button class="refresh-btn" onclick="loadRecentData()">🔄 Refresh</button>
+            </div>
+            <div class="table-container">
+                <table id="recentDataTable">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>URL</th>
+                            <th>Title/Extension</th>
+                            <th>Size</th>
+                            <th>Domain</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recentDataBody">
+                        <tr>
+                            <td colspan="6" class="loading">Loading data...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Logs Section -->
+        <div class="logs-card">
+            <div class="logs-header">
+                <h3>📝 Recent Logs</h3>
+                <button class="refresh-btn" onclick="loadLogs()">🔄 Refresh</button>
+            </div>
+            <div class="logs-container" id="logsContainer">
+                <div class="loading">Loading logs...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
