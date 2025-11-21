@@ -14,7 +14,7 @@ Get started with AI Data Collector in 5 minutes!
 
 ```bash
 # If using git
-git clone https://github.com/yourusername/ai-data-collector.git
+git clone https://github.com/JanadaSroor/ai-data-collector.git
 cd ai-data-collector
 
 # Or download and extract the ZIP file
